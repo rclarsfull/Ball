@@ -1,10 +1,10 @@
 public class Gast implements java.io.Serializable {
-    String vorname;
-    String nachname;
-    int alter;
-    int preis;
-    boolean mitglied;
-    boolean freiereintritt;
+    private String vorname;
+    private String nachname;
+    private int alter;
+    private int preis;
+    private boolean mitglied;
+    private boolean freiereintritt;
 
     Gast(String vorname,String nachname,int alter,boolean freieintritt,boolean mitglied){
         this.vorname=vorname;

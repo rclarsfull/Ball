@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Gaestegruppe implements java.io.Serializable  {
-    ArrayList<Gast> gruppe=new ArrayList<Gast>();
+    private ArrayList<Gast> gruppe=new ArrayList<Gast>();
 
     Gaestegruppe() {
 

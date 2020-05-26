@@ -130,7 +130,7 @@ public void printGruppen(){
         System.out.println();
         for (int g = 0; g < tische.size(); g++) {
             Tisch temp=tische.get(g);
-            System.out.println("Tisch " + (g + 1) + ": "+"\t\t(groesse:"+temp.getSize()+")[Freie Sitze:"+temp.freieplaetze+"]");
+            System.out.println("Tisch " + (g + 1) + ": "+"\t\t(groesse:"+temp.getSize()+")[Freie Sitze:"+temp.getFreieplaetze()+"]");
             System.out.println();
             temp.printTischmitglieder();
             System.out.println();
@@ -157,7 +157,7 @@ public void verteilenAnTische(){
         Gaestegruppe temp=unverteiletGaeste.get(i);
         boolean fehler=false;
         int z=0;
-        for (z = 0; tische.get(z).freieplaetze < temp.getSize(); z++) {
+        for (z = 0; tische.get(z).getFreieplaetze() < temp.getSize(); z++) {
             if (z>tische.size()){
                 fehler=true;
                 break;

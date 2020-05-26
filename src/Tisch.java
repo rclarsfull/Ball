@@ -1,13 +1,13 @@
-import org.jetbrains.annotations.NotNull;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Tisch implements java.io.Serializable {
-    int tischnummer;
-    int size;
-    int freieplaetze;
-    ArrayList<Gast> personen=new ArrayList<Gast>();
+    private int tischnummer;
+    private int size;
+    private int freieplaetze;
+    private ArrayList<Gast> personen=new ArrayList<Gast>();
 
     Tisch(int tischnummer, int size){
         this.tischnummer=tischnummer;
