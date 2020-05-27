@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-
-public class MenueBallbearbeitung implements java.io.Serializable{
+public class MenueTische {
     public static void auswahl(Ball veranstaltung){
         Scanner eingabe=new Scanner(System.in);
-        String [] menuepunkte= {"Untermenü Personen","Untermenü Tische","Zurück"};
+        String [] menuepunkte= {"Alle Gaeste anzeigen","Tischverteilung anzeigen","Neuen Tisch erzeugen","Gaeste an Tische verteilen",
+                "Tischverteilung loeschen","schliessen"};
 
         boolean wid=true;
         while (wid) {
@@ -18,12 +18,22 @@ public class MenueBallbearbeitung implements java.io.Serializable{
 
             switch (eingabe.nextInt()) {
                 case 1:
-                    MenuePersonen.auswahl(veranstaltung);
+                    veranstaltung.printGruppen();
                     break;
                 case 2:
-                    MenueTische.auswahl(veranstaltung);
+                    veranstaltung.printTische();
                     break;
                 case 3:
+                    veranstaltung.addTisch();
+                    break;
+                case 4:
+                    veranstaltung.sortNachGruppengoesse();
+                    veranstaltung.verteilenAnTische();
+                    break;
+                case 5:
+                    veranstaltung.resetTischverteilung();
+                    break;
+                case 6:
                     wid=false;
                     Speichern.ueberschreiben(veranstaltung);
                     break;
@@ -34,5 +44,4 @@ public class MenueBallbearbeitung implements java.io.Serializable{
         }
 
     }
-
 }

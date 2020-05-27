@@ -41,7 +41,14 @@ public class Ball implements java.io.Serializable {
         return tische;
     }
 
-public void addTisch(int tischnummer, int size){
+public void addTisch(){
+    int tischnummer;
+    int size;
+    System.out.println();
+    System.out.println();
+    System.out.println();
+    tischnummer=Einlesen.readInt("Geben sie die gewuenschte Tischnummer an");
+    size=Einlesen.readInt("Geben sie die maximal moegliche Besetzungszahl von dem Tisch an");
      tische.add(new Tisch(tischnummer, size));
 }
 public void addGast(){
