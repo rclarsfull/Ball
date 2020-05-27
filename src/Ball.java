@@ -131,17 +131,51 @@ public void printGruppen(){
         System.out.println();
     }
 }
-    public void printTische(){
+public void printTische(){
         System.out.println("Alle Tische: ");
         System.out.println();
         System.out.println();
+        sortTischeNachTischnummer();
         for (int g = 0; g < tische.size(); g++) {
             Tisch temp=tische.get(g);
-            System.out.println("Tisch " + (g + 1) + ": "+"\t\t(groesse:"+temp.getSize()+")[Freie Sitze:"+temp.getFreieplaetze()+"]");
+            System.out.println("Tisch " + temp.getTischnummer() + ": "+"\t\t(groesse:"+temp.getSize()+")[Freie Sitze:"+temp.getFreieplaetze()+"]");
             System.out.println();
             temp.printTischmitglieder();
             System.out.println();
         }
+    }
+public void delTisch(){
+sortTischeNachTischnummer();
+int tischnummer=Einlesen.readInt("Geben sie die Tischnummer von dem zu löschenden Tisch ein");
+boolean kontrolle=false;
+    for (Tisch a:tische) {
+        if(a.getTischnummer()==tischnummer){
+            tische.remove(a);
+            kontrolle=true;
+        }
+    }
+    if(kontrolle){
+        System.out.println("Alle Tische mit der Tischnummer "+tischnummer+" wurden entfernt.");
+    }else{
+        System.out.println("FEHLER!!");
+        System.out.println("Es wurde kein Tisch mit der Tischnummer gedunden.");
+    }
+    }
+public void sortTischeNachTischnummer(){
+     int temp=tische.size();
+     Tisch ablage1;
+    for (int j = 0; j <tische.size() ; j++) {
+        temp+=-1;
+        for (int i = 0; i < temp ; i++) {
+           if (tische.get(i).getTischnummer()!=tische.get(i+1).getTischnummer()){
+               if (tische.get(i).getTischnummer()>tische.get(i+1).getTischnummer()){
+                   ablage1=tische.get(i);
+                   tische.set((i),tische.get(i+1));
+                   tische.set((i+1),ablage1);
+               }
+           }
+        }
+    }
     }
 public void sortNachGruppengoesse(){
         int hilfe=unverteiletGaeste.size();

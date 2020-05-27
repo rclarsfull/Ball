@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class MenueTische {
     public static void auswahl(Ball veranstaltung){
         Scanner eingabe=new Scanner(System.in);
-        String [] menuepunkte= {"Alle Gaeste anzeigen","Tischverteilung anzeigen","Neuen Tisch erzeugen","Gaeste an Tische verteilen",
+        String [] menuepunkte= {"Alle Gaeste anzeigen","Tischverteilung anzeigen","Neuen Tisch erzeugen","Tisch löschen","Gaeste an Tische verteilen",
                 "Tischverteilung loeschen","schliessen"};
 
         boolean wid=true;
@@ -27,13 +27,16 @@ public class MenueTische {
                     veranstaltung.addTisch();
                     break;
                 case 4:
+                    veranstaltung.delTisch();
+                    break;
+                case 5:
                     veranstaltung.sortNachGruppengoesse();
                     veranstaltung.verteilenAnTische();
                     break;
-                case 5:
+                case 6:
                     veranstaltung.resetTischverteilung();
                     break;
-                case 6:
+                case 7:
                     wid=false;
                     Speichern.ueberschreiben(veranstaltung);
                     break;
