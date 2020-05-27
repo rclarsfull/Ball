@@ -148,11 +148,15 @@ public void delTisch(){
 sortTischeNachTischnummer();
 int tischnummer=Einlesen.readInt("Geben sie die Tischnummer von dem zu löschenden Tisch ein");
 boolean kontrolle=false;
+ArrayList<Tisch> entfernen=new ArrayList<Tisch>();
     for (Tisch a:tische) {
         if(a.getTischnummer()==tischnummer){
-            tische.remove(a);
+            entfernen.add(a);
             kontrolle=true;
         }
+    }
+    for (Tisch a:entfernen) {
+        tische.remove(a);
     }
     if(kontrolle){
         System.out.println("Alle Tische mit der Tischnummer "+tischnummer+" wurden entfernt.");
