@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MenueTische {
+public class MenueTische implements java.io.Serializable {
     public static void auswahl(Ball veranstaltung){
         Scanner eingabe=new Scanner(System.in);
         String [] menuepunkte= {"Alle Gaeste anzeigen","Tischverteilung anzeigen","Neuen Tisch erzeugen","Tisch löschen","Gaeste an Tische verteilen",

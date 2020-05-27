@@ -198,11 +198,13 @@ public void sortNachGruppengoesse(){
         } // end of for
     }
 public void verteilenAnTische(){
-    for (int i = unverteiletGaeste.size()-1; i <= 0; i--) {
+    System.out.println(unverteiletGaeste.size());
+    for (int i = unverteiletGaeste.size()-1; i >= 0; i--) {
         Gaestegruppe temp=unverteiletGaeste.get(i);
         boolean fehler=false;
         int z=0;
         for (z = 0; tische.get(z).getFreieplaetze() < temp.getSize(); z++) {
+            System.out.println(z);
             if (z>tische.size()){
                 fehler=true;
                 break;

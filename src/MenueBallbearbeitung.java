@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class MenueBallbearbeitung implements java.io.Serializable{
     public static void auswahl(Ball veranstaltung){
         Scanner eingabe=new Scanner(System.in);
-        String [] menuepunkte= {"Untermenü Personen","Untermenü Tische","Zurück"};
+        String [] menuepunkte= {"Untermenue Personen","Untermenue Tische","Zurueck"};
 
         boolean wid=true;
         while (wid) {

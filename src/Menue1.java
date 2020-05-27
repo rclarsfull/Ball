@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Menue1 implements java.io.Serializable{
     public static void auswahl(){
         Scanner eingabe=new Scanner(System.in);
-        String [] menuepunkte= {"Neuen Ball planen","Bereits angelegten Ball laden","Schließen"};
+        String [] menuepunkte= {"Neuen Ball planen","Bereits angelegten Ball laden","Schliessen"};
 
         boolean wid=true;
         while (wid) {

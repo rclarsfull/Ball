@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class MenuePersonen {
+public class MenuePersonen implements java.io.Serializable{
     public static void auswahl(Ball veranstaltung){
         Scanner eingabe=new Scanner(System.in);
-        String [] menuepunkte= {"Alle Gaeste anzeigen","Neuen Gast anlegen","Eine Gruppe von Gaesten anlegen","Gaeste an Tische verteilen","schliessen",};
+        String [] menuepunkte= {"Alle Gaeste anzeigen","Neuen Gast anlegen","Eine Gruppe von Gaesten anlegen","schliessen",};
 
         boolean wid=true;
         while (wid) {
