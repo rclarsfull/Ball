@@ -29,7 +29,7 @@ public class Tisch implements java.io.Serializable {
         ArrayList<Gast> temp=a.getGruppe();
         for (int i = 0; i <a.getSize(); i++) {
          personen.add(temp.get(i));
-            System.out.println("person hinzugefügt");
+           // System.out.println("person hinzugefügt");
         }
 
     }

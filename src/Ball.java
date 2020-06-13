@@ -231,7 +231,7 @@ public void verteilenAnTische(){
         boolean fehler=false;
         int z=0;
         for (z = 0; tische.get(z).getFreieplaetze() < temp.getSize(); z++) {
-            System.out.println(z);
+          //  System.out.println(z);
             if (z>tische.size()){
                 fehler=true;
                 break;
@@ -244,6 +244,7 @@ public void verteilenAnTische(){
         }else{
             tische.get(z).addGast(temp);
             unverteiletGaeste.remove(i);
+            System.out.println("was gemacht");
         }
     }
 }
