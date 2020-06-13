@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Menue1 implements java.io.Serializable{
+public class Menue1 {
     public static void auswahl(){
         Scanner eingabe=new Scanner(System.in);
         String [] menuepunkte= {"Neuen Ball planen","Bereits angelegten Ball laden","Schliessen"};

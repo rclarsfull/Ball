@@ -14,8 +14,9 @@ public class Tisch implements java.io.Serializable {
         this.size=size;
     }
     public void resetGaeste(){
-        for (Gast a:personen) {
-            personen.remove(a);
+        int temp=personen.size();
+        for (int i = 0; i <temp ; i++) {
+           personen.remove(0);
         }
     }
     public void printTischmitglieder(){
@@ -31,6 +32,10 @@ public class Tisch implements java.io.Serializable {
             System.out.println("person hinzugefügt");
         }
 
+    }
+
+    public ArrayList<Gast> getSizende(){
+      return personen;
     }
 
     public int getFreieplaetze() {

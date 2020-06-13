@@ -1,9 +1,9 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class Speichern implements java.io.Serializable {
+public class Speichern {
     public static void spreichern(Ball a){
-           try(FileOutputStream fos=new FileOutputStream(a.getDatum()+" "+a.getName()+".ser") ;
+           try(FileOutputStream fos=new FileOutputStream(a.getDatum()+" "+a.getName()+".txt") ;
            ObjectOutputStream oos=new ObjectOutputStream(fos)){
                oos.writeObject(a);
            } catch (FileNotFoundException e) {
@@ -14,7 +14,7 @@ public class Speichern implements java.io.Serializable {
     }
 
     public static void ueberschreiben(Ball a){
-        File temp=new File(a.getDatum()+" "+a.getName()+".ser");
+        File temp=new File(a.getDatum()+" "+a.getName()+".txt");
         try(FileOutputStream fos=new FileOutputStream(temp) ;
             ObjectOutputStream oos=new ObjectOutputStream(fos)){
             oos.writeObject(a);

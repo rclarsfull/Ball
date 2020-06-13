@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class Ball implements java.io.Serializable {
@@ -57,6 +59,9 @@ public void addGast(){
     int alter;
     boolean freieintritt;
     boolean mitglied;
+    SimpleDateFormat timer = new SimpleDateFormat(
+            "yyyy.MM.dd - HH:mm:ss ");
+    String gruppenID=timer.format(new Date());
     do {
         System.out.println();
         vorname = Einlesen.readString("Geben sie den Vornamen ein");
@@ -75,7 +80,8 @@ public void addGast(){
         System.out.println();
     }while (Einlesen.readBoolean("Moechten sie sie Eingaben verändern? [true/false]"));
     System.out.println();
-     unverteiletGaeste.add(new Gaestegruppe(new Gast(vorname,nachname,alter,freieintritt,mitglied)));
+    unverteiletGaeste.add(new Gaestegruppe(new Gast(vorname,nachname,alter,freieintritt,mitglied,gruppenID),gruppenID));
+    alleGaestegruppen.add(new Gaestegruppe(new Gast(vorname,nachname,alter,freieintritt,mitglied,gruppenID),gruppenID));
 }
 public void addGaesteGruppe(){
     String vorname;
@@ -83,10 +89,14 @@ public void addGaesteGruppe(){
     int alter;
     boolean freieintritt;
     boolean mitglied;
+    SimpleDateFormat timer = new SimpleDateFormat(
+            "yyyy.MM.dd - HH:mm:ss ");
+    String gruppenID=timer.format(new Date());
      int naechsteGruppe=unverteiletGaeste.size();
      do {
          int gruppengroeße = Einlesen.readInt("Geben Sie die Gruppengröße an");
-         unverteiletGaeste.add(new Gaestegruppe());
+         unverteiletGaeste.add(new Gaestegruppe(gruppenID));
+         alleGaestegruppen.add(new Gaestegruppe(gruppenID));
          for (int i = 0; i < gruppengroeße; i++) {
              do {
                  System.out.println();
@@ -106,7 +116,8 @@ public void addGaesteGruppe(){
                  System.out.println();
              } while (Einlesen.readBoolean("Möchten sie sie Eingabe verändern? [true/false]"));
              System.out.println();
-             unverteiletGaeste.get(naechsteGruppe).addGast(new Gast(vorname, nachname, alter, freieintritt, mitglied));
+             unverteiletGaeste.get(naechsteGruppe).addGast(new Gast(vorname, nachname, alter, freieintritt, mitglied,gruppenID));
+             alleGaestegruppen.get(naechsteGruppe).addGast(new Gast(vorname, nachname, alter, freieintritt, mitglied, gruppenID));
          }
          System.out.println();
          System.out.println();
@@ -153,8 +164,24 @@ ArrayList<Tisch> entfernen=new ArrayList<Tisch>();
         if(a.getTischnummer()==tischnummer){
             entfernen.add(a);
             kontrolle=true;
+            ArrayList<Gast> ehmaligSitzend=a.getSizende();
+
+            while (ehmaligSitzend.size()>0) {
+                String tempgruppenID=ehmaligSitzend.get(0).getGruppenID();
+                Gaestegruppe newGruppe= new Gaestegruppe(tempgruppenID);
+
+                for (int g=0;g<ehmaligSitzend.size();g++) {
+                    if (tempgruppenID==ehmaligSitzend.get(g).getGruppenID()){
+                       newGruppe.addGast(ehmaligSitzend.get(g));
+                       ehmaligSitzend.remove(g);
+                    }
+                }
+            }
+
         }
     }
+
+
     for (Tisch a:entfernen) {
         tische.remove(a);
     }

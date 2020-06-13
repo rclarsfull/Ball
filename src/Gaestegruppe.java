@@ -2,12 +2,14 @@ import java.util.ArrayList;
 
 public class Gaestegruppe implements java.io.Serializable  {
     private ArrayList<Gast> gruppe=new ArrayList<Gast>();
+    private String gruppenID;
 
-    Gaestegruppe() {
-
+    Gaestegruppe(String gruppenID) {
+        this.gruppenID=gruppenID;
     }
-    Gaestegruppe(Gast a) {
+    Gaestegruppe(Gast a,String gruppenID) {
         gruppe.add(a);
+        this.gruppenID=gruppenID;
     }
     public void addGast(Gast a){
         gruppe.add(a);

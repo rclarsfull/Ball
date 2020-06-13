@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class MenueBallbearbeitung implements java.io.Serializable{
+public class MenueBallbearbeitung {
     public static void auswahl(Ball veranstaltung){
         Scanner eingabe=new Scanner(System.in);
         String [] menuepunkte= {"Untermenue Personen","Untermenue Tische","Zurueck"};

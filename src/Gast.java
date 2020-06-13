@@ -5,13 +5,19 @@ public class Gast implements java.io.Serializable {
     private int preis;
     private boolean mitglied;
     private boolean freiereintritt;
+    private String gruppenID;
 
-    Gast(String vorname,String nachname,int alter,boolean freieintritt,boolean mitglied){
+    Gast(String vorname,String nachname,int alter,boolean freieintritt,boolean mitglied, String gruppenID){
         this.vorname=vorname;
         this.nachname=nachname;
         this.alter=alter;
         this.freiereintritt=freieintritt;
         this.mitglied=mitglied;
+        this.gruppenID=gruppenID;
+    }
+
+    public String getGruppenID() {
+        return gruppenID;
     }
 
     public String getVorname() {
