@@ -28,9 +28,11 @@ public class MenueTische implements java.io.Serializable {
                     break;
                 case 4:
                     veranstaltung.delTisch();
+                    veranstaltung.sortTische();
                     break;
                 case 5:
                     veranstaltung.sortNachGruppengoesse();
+                    veranstaltung.sortTische();
                     veranstaltung.verteilenAnTische();
                     break;
                 case 6:
@@ -40,6 +42,7 @@ public class MenueTische implements java.io.Serializable {
                     wid=false;
                     Speichern.ueberschreiben(veranstaltung);
                     break;
+
                 default:
                     System.out.println("Falsche Eingabe!!");
                     break;

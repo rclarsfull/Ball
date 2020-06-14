@@ -1,13 +1,17 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 
-public class Ball implements java.io.Serializable {
+public class Ball implements Serializable {
 
     ArrayList<Tisch> tische=new ArrayList<Tisch>();
     ArrayList<Gaestegruppe> unverteiletGaeste=new ArrayList<Gaestegruppe>();
     ArrayList<Gaestegruppe> alleGaestegruppen=new ArrayList<Gaestegruppe>();
+    ArrayList<Gaestegruppe> save;
     String name;
     String datum;
 
@@ -191,6 +195,7 @@ ArrayList<Tisch> entfernen=new ArrayList<Tisch>();
         System.out.println("FEHLER!!");
         System.out.println("Es wurde kein Tisch mit der Tischnummer gedunden.");
     }
+
     }
 public void sortTischeNachTischnummer(){
      int temp=tische.size();
@@ -224,29 +229,44 @@ public void sortNachGruppengoesse(){
             } // end of for
         } // end of for
     }
+    public void sortTische(){
+        Collections.sort(tische);
+    }
+
 public void verteilenAnTische(){
    // System.out.println(unverteiletGaeste.size());
     for (int i = unverteiletGaeste.size()-1; i >= 0; i--) {
+        Collections.sort(tische);
         Gaestegruppe temp=unverteiletGaeste.get(i);
-        boolean fehler=true;
-        int z;
-        for (z=0;z<tische.size();z++) {
-            if (tische.get(z).getFreieplaetze() < temp.getSize()){
-                fehler=false;
-                break;
-            }
-        }
-        if (fehler){
+        unverteiletGaeste.remove(i);
+        int goesterTisch=tische.get(tische.size()-1).getFreieplaetze();
+        int adresse=tische.size()-1;
+        if (goesterTisch<temp.getSize()){
             System.out.println("FEHLER: Kein Tisch ist gross genug um die Gruppe "+i+". auf einen Tisch zu verteilen.");
             System.out.println("Bitte erst Gruppe teilen oder neuen Tisch anlegen.");
+            unverteiletGaeste.add(temp);
             break;
         }else{
-            tische.get(z).addGast(temp);
-            unverteiletGaeste.remove(temp);
+            tische.get(adresse).addGast(temp);
             System.out.println("was gemacht");
         }
+
     }
 }
+
+
+public void verteilung(){
+
+     save=unverteiletGaeste;
+
+    for (int i = unverteiletGaeste.size()-1; i >=0 ; i--) {
+
+
+
+    }
+
+}
+
 public void resetTischverteilung(){
      unverteiletGaeste=alleGaestegruppen;
     for (Tisch a:tische) {

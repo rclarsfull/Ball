@@ -1,9 +1,10 @@
 
 
-import java.io.Serializable;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
-public class Tisch implements java.io.Serializable {
+public class Tisch implements java.io.Serializable,Comparable {
     private int tischnummer;
     private int size;
     private int freieplaetze;
@@ -51,4 +52,16 @@ public class Tisch implements java.io.Serializable {
         return tischnummer;
     }
 
+
+    public String toString(){
+
+        return ("Tischnummer: "+tischnummer+" Maximale besetzungszahl: "+size+" Freie plaeze: "+freieplaetze);
+    }
+
+
+    @Override
+    public int compareTo(@NotNull Object o) {
+        int vergleicher=((Tisch)o).getFreieplaetze();
+        return this.getFreieplaetze()-vergleicher;
+    }
 }
