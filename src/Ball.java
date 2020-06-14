@@ -225,15 +225,14 @@ public void sortNachGruppengoesse(){
         } // end of for
     }
 public void verteilenAnTische(){
-    System.out.println(unverteiletGaeste.size());
+   // System.out.println(unverteiletGaeste.size());
     for (int i = unverteiletGaeste.size()-1; i >= 0; i--) {
         Gaestegruppe temp=unverteiletGaeste.get(i);
-        boolean fehler=false;
-        int z=0;
-        for (z = 0; tische.get(z).getFreieplaetze() < temp.getSize(); z++) {
-          //  System.out.println(z);
-            if (z>tische.size()){
-                fehler=true;
+        boolean fehler=true;
+        int z;
+        for (z=0;z<tische.size();z++) {
+            if (tische.get(z).getFreieplaetze() < temp.getSize()){
+                fehler=false;
                 break;
             }
         }
@@ -243,7 +242,7 @@ public void verteilenAnTische(){
             break;
         }else{
             tische.get(z).addGast(temp);
-            unverteiletGaeste.remove(i);
+            unverteiletGaeste.remove(temp);
             System.out.println("was gemacht");
         }
     }
